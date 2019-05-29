@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM操作节点</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <h4>无序列表</h4>
+        <ul id="test">
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+        </ul>
+        <br/>
+        <input type="button" value="添加结点" onclick="app()"/>
+        <input type="button" value="插入结点" onclick="run()"/>
+    </body>
+    <script>
+        // 生成子节点
+        function app(){
+             var li = document.createElement("li");
+             var text = document.createTextNode("深圳");
+             li.appendChild(text);
+             ul.appendChild(li);
+        }
+        function run(){
+            // 创建元素对象
+            var li = document.createElement("li");
+            // 创建文本
+            var text = document.createTextNode("深圳");
+            // 把文本添加到li下面
+            li.appendChile(text);
+            // 把li添加到ul的下面
+            //------------方法2--------------
+            var uls = document.getElementsByTagName("ul");	//uls是类似集合节点
+            var ul = uls[0];	//得到一个元素
+            // 获取上海的节点
+            var sh = document.getElementById("shId");
+            ul.insertBefore(li,sh); 
+        }
+        document.getElementById("shId").onclick = function(){	// 匿名函数
+						this.parentNode.removeChild(this);
+					};
+    </script>
+</html>

@@ -1,0 +1,18 @@
+div{
+    text-align:center;
+    marign:10px;
+}
+#CDimage img{
+    border-radius:50%;
+}
+img{
+    border:0px;
+}
+button{
+    background:transparent;
+    border:0;
+    outline:0;
+}
+h3{
+text-align: center
+}

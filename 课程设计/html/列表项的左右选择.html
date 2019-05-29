@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>列表项的左右选择</title>
+		<style type="text/css">
+
+        </style>
+	</head>
+	<body>
+		<div id="s1" style="float:left;">
+			<div>
+				<select id="select1" multiple="multiple" style="width:100px;height:100px;">
+					<option>选项一</option>
+					<option>选项二</option>
+					<option>选项三</option>
+					<option>选项四</option>
+					<option>选项五</option>
+				</select>
+			</div>
+
+
+			<div>
+				<input type="button" value="选中添加到右边" onclick="selToRight();"/><br/>
+				<input type="button" value="全部添加到右边" onclick="allToRight();"/>
+			</div>
+		</div>
+
+		<div id="s2">
+			<div>
+				<select id="select2" multiple="multiple" style="width:100px;height:100px;">
+					<option>选项六</option>
+				</select>
+			</div>
+
+			<div>
+				<input type="button" value="选中添加到左边" onclick="selToLeft();"/><br/>
+				<input type="button" value="全部添加到左边" onclick="allToLeft();"/>
+			</div>
+		</div>
+
+	<script type="text/javascript">
+
+		function allToLeft() {
+			var select2 = document.getElementById("select2");
+			var select1 = document.getElementById("select1");
+			var options1 = select2.getElementsByTagName("option");
+			for(var m=0;m<options1.length;m++){
+				var op11 = options1[m];
+				select1.appendChild(op11);
+				m--;
+			}
+		}
+
+		function selToLeft() {
+			var s1 = document.getElementById("select1");
+			var s2 = document.getElementById("select2");
+			var opss = s2.getElementsByTagName("option");
+			for(var aa=0;aa<opss.length;aa++) {
+				var op = opss[aa];
+				if(op.selected == true) {
+					s1.appendChild(op);
+					aa--;
+				}
+			}
+		}
+
+		function allToRight() {
+			var s2 = document.getElementById("select2");
+			var s1 = document.getElementById("select1");
+			var ops = s1.getElementsByTagName("option");
+			for(var j=0;j<ops.length;j++) {
+				var op1 = ops[j];
+				s2.appendChild(op1);
+				j--;
+			}
+		}
+
+		function selToRight() {
+			var select2 = document.getElementById("select2");
+			var select1 = document.getElementById("select1");
+			var options1 = select1.getElementsByTagName("option");
+			for(var i=0;i<options1.length;i++) {
+				var option1 = options1[i];
+				if(option1.selected == true) {
+					select2.appendChild(option1);
+					i--;
+				}
+			}
+
+		}
+		
+	</script>
+	</body>
+</html>

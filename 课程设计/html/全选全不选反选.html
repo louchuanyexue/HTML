@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全选/全不选/反选</title>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" id="boxid" onclick="selAllNo();"/>全选/全不选
+		<br/>
+		<input type="checkbox" name="love"/>篮球
+		<input type="checkbox" name="love"/>排球
+		<input type="checkbox" name="love"/>羽毛球
+		<input type="checkbox" name="love"/>乒乓球
+		<br/>
+		<input type="button" value="全选" onclick="selAll();"/>
+		<input type="button" value="全不选" onclick="selNo();"/>
+		<input type="button" value="反选" onclick="selOther();"/>
+	</body>
+		<script type="text/javascript">
+		function selAllNo() {
+			var box1 = document.getElementById("boxid");
+			if(box1.checked == true) { 
+				selAll();
+			} else {
+				selNo();
+			}
+		}
+	
+		function selOther() {
+			var loves11 = document.getElementsByName("love");
+			for(var a=0;a<loves11.length;a++) {
+				var love11 = loves11[a];
+				if(love11.checked == true) { 
+					love11.checked = false;
+				} else { 
+					love11.checked = true;
+				}
+			}
+		}
+	
+		function selNo() {
+			var loves1 = document.getElementsByName("love");
+			for(var j=0;j<loves1.length;j++) {
+				var love1 = loves1[j];
+				love1.checked = false;
+			}
+		}
+
+		function selAll() {
+			var loves = document.getElementsByName("love");
+			for(var i=0;i<loves.length;i++) {
+				var love1 = loves[i];
+				love1.checked = true;
+			}
+		}
+		
+	</script>
+</html>

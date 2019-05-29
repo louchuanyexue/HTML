@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>简单电子时钟的设计与实现</title>
+	<link rel="stylesheet" href="../css/clock.css">
+</head>
+<body onload="getCurrentTime()">
+	<center><h1>电子时钟</h1></center>
+	<div id="clock">
+		<div class="box1" id="h"></div>
+		<div class="box2">:</div>
+		<div class="box1" id="m"></div>
+		<div class="box2">:</div>
+		<div class="box1" id="s"></div>
+	</div>
+	<!--<img alt="洛天依" src="luotianyi.jpg">-->
+	<script>
+		//hour
+		var hour = document.getElementById("h");
+		var minute = document.getElementById("m");
+		var second = document.getElementById("s"); 
+
+		//give current time
+		function getCurrentTime() {
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			
+			if(h<10)
+				h = "0"+h;//sure to 0-9 is two points
+			if(m<10)
+				m = "0"+m;
+			if(s<10)
+				s = "0"+s;
+			
+			hour.innerHTML = h;
+			minute.innerHTML = m;
+			second.innerHTML = s;
+		}
+		//per seconds update
+		setInterval("getCurrentTime()",1000);	
+	</script>
+</body>
+</html>

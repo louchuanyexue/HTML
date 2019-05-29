@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>简单音乐播放器</title>
+<link rel="stylesheet" href="../css/music.css">
+</head>
+<body>
+<h3>简单音乐播放器</h3>
+<hr/>
+<audio id="audio" src="../music/Avril Lavigne - Skater Boy.mp3"  preload>
+   对不起，您的浏览器不支持HTML5音频播放。
+</audio>
+<div id="CDimage">
+    <img src="../picture/黑胶唱片.png" width="200" height="200">
+</div>
+<div>
+   <input id="volume" type="range" min="0" max="1" step="0.1" onchange="setVolume()"/>
+</div>
+<div>
+    当前正在播放：<span id="title">Avril Lavigne - Skater Boy.mp3</span>
+</div>
+<!-- 音乐播放器按钮 -->
+<div>
+  <button onclick="lastMusic()">
+  <img src="../picture/precious.png" width="50" height="50"/>
+  </button>
+  <button id="toggleBtn" onclick="toggleMusic()">
+  <img src="../picture/play.png" width="50" height="50"/>
+  </button>
+  <button onclick="nextMusic()">
+  <img src="../picture/next.png" width="50" height="50"/>
+  </button>
+</div>
+<script>
+   var music=document.getElementById("audio");
+   var volume=document.getElementById("volume");
+   var toggleBtn=document.getElementById("toggleBtn");
+   var title=document.getElementById("title");
+   var list=new Array("../music/Avril Lavigne - Skater Boy.mp3","../music/DEAMN - Sign.mp3","../music/东京不太热（纯女声）.mp3","../music/何崇志 - 春田花花幼稚园校歌.mp3","../music/李健 - 美若黎明.mp3","../music/洛少爷 - 勾指起誓 （甜味小少年ver）（Cover：ilem）.mp3","../music/阮豆 - 当你.mp3","../music/逃跑计划 - 一万次悲伤.mp3","../music/新裤子 - 没有理想的人不伤心 (Remix版).mp3","../music/幼稚园杀手- 世界很大我很小.mp3","../music/周杰伦-发如雪.mp3");
+   var titleList=new Array("Avril Lavigne - Skater Boy","DEAMN - Sign","东京不太热（纯女声）","何崇志 - 春田花花幼稚园校歌","李健 - 美若黎明","洛少爷 - 勾指起誓 （甜味小少年ver）（Cover：ilem）","阮豆 - 当你","逃跑计划 - 一万次悲伤","新裤子 - 没有理想的人不伤心 (Remix版)","幼稚园杀手- 世界很大我很小","周杰伦-发如雪");
+   var i=0;
+   //音乐播放与暂停切换方法
+   function toggleMusic(){
+     if (music.paused){
+      music.play();
+      //播放音乐
+      toggleBtn.innerHTML='<img src="../picture/play.png" width="50" height="50"/>';
+     }else{
+       music.pause();
+       toggleBtn.innerHTML='<img src="../picture/pause.png" width="50" height="50"/>';
+     }
+   }
+   //设置音量大小
+   function setVolume(){
+     music.volume=volume.value;
+   }
+   function nextMusic(){
+      if(i==list.length-1)
+     i=0;
+      else
+     i++;
+      music.pause();
+      music.src=list[i];
+      title.innerHTML=titleList[i];
+      music.play();
+   }
+    function lastMusic(){
+    if(i==0)
+      i==list.length-1;
+      else
+      i--;
+      music.pause();
+      music.src=list[i];
+      title.innerHTML=titleList[i];
+      music.play();
+   }
+</script>
+</body>
+</html>

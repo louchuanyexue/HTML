@@ -1,0 +1,13 @@
+span{
+    text-align: center;
+    color:#e83015;
+    font: bolder;
+}
+body{
+    background-image:url(../picture/background.jpg);
+    background-size: 100% 100%;
+}
+#peil{
+    border-collapse: collapse;
+    text-align: left;
+}

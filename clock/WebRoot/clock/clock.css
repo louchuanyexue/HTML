@@ -1,0 +1,31 @@
+#clock{
+	width: 800px;
+	font-size: 80px;
+	font-weight: bold;
+	color: red;
+	text-align: center;
+	margin: 20px;
+	color: #66ccff;
+}
+.box1 {
+	margin-right: 10px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	float: left;
+	border: white 1px solid;
+}
+.box2{
+	width: 30px;
+	float: left;
+	margin-right: 10px;
+}
+body{
+	background:url(luotianyi2.jpg) no-repeat center center;
+	background-size:cover;
+	background-attachment:fixed;
+	background-color:#66ccff;  
+}
+h1{
+	color:#66ccff;
+}
